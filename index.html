@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Dev Setup</title>
+    
+    <!-- Link to Service Worker -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="https://example.com/manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" 
+href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=href="https://fonts.googleapis.com/css2?family=Rboto:wght@400;500&display=swap">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="preconnect" href="https://fonts.googleapis.com" 
+crossorigin>
+    <link rel="stylesheet" 
+href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&disphref="https://fonts.googleapis.com/cs2?family=Roboto:wght@400;500;700&display=swap" 
+integrity="sha384-uK2x5603l730140cJ9zr31470x5886288d47614334136851e8035d1d2integrity="sha384-uK2x5603l730140cJ9zr31470x5886288d476143341368518035d1d21095e72a1052e6699a29f7e376c4f740635b04a87f" crossorigin="" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.minhref="https://cdnjs.cloudflare.com/ajax/libs/fon-awesome/6.2.1/css/all.min.css" 
+integrity="sha512-Fo3XLkpiJRb694d01307u50345845208619392369535036Bb0f19d77Dintegrity="sha512-Fo3XLkpiJRb694d01307u50345845208619392369535036Bb0f1d77D8B8cA2d006e10e2c0F55f2c63b147195199" crossorigin="anonymous" 
+referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" 
+crossorigin>
+    <link rel="stylesheet" 
+href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&disphref="https://fonts.googleapis.com/cs2?family=Roboto:wght@400;500;700&display=swap" />
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <h1>Securely Proxy Dev Setup</h1>
+        <p>Service Worker is loading...</p>
+        <a href="https://example.com/manifest.json" 
+download="manifest.json">
+            <i class="fas fa-download"></i> Download manifest.json
+        </a>
+        <hr>
+        <h2>Key Differences:</h2>
+        <ul>
+            <li><strong>Content Scripts</strong> are browser specific 
+(e.g. Chrome only).</li>
+            <li><strong>Service Workers</strong> act as a global proxy for 
+the entire network (e.g. Mobile App, Desktop, Browser).</li>
+            <li>We use Service Worker to intercept requests and rewrite 
+the URL before it reaches the browser.</li>
+            <li>Use a Service Worker to intercept all fetch requests 
+globally, not just one specific page.</li>
+        </ul>
+    </div>
+
+    <!-- Dynamic Linker -->
+    <script 
+src="https://cdn.jsdelivr.net/npm/webpack@4.46.0/dist/webpack-cli.js"></scrsrc="https://cdn.jsdelivr.net/npm/webpack@4.46.0/dist/webpack-ci.js"></script>
+    <script 
+src="https://cdn.jsdelivr.net/npm/webpack@4.46.0/dist/webpack-dev-server.jssrc="https://cdn.jsdelivr.net/npm/webpack@4.46.0/dist/webpack-dv-server.js"></script>
+    <script 
+src="https://cdn.jsdelivr.net/npm/browser-sync@2.30.0/dist/browser-sync.minsrc="https://cdn.jsdelivr.net/npm/browser-sync@2.30.0/dist/brower-sync.min.js"></script>
+    
+    <script>
+        const { BrowserSync } = require('browser-sync');
+        
+        // Initialize Browser Sync
+        const bs = new BrowserSync({
+            proxy: 'http://localhost:3000',
+            mode: 'development'
+        });
+        
+        // Reload page to trigger Service Worker install
+        bs.reload();
+    </script>
+
+</body>
+</html>
