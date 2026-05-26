@@ -1,0 +1,14 @@
+{
+  "name": "Securely Proxy Worker",
+  "short_name": "Proxy",
+  "display": "minimal-ui",
+  "start_url": "/",
+  "description": "Proxy that forces eTLD rewriting via Service Worker",
+  "options": {
+    "scope": "/",
+    "serviceWorker": {
+      "name": "Proxy Worker",
+      "private": true
+    }
+  }
+}
